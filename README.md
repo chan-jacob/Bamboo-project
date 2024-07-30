@@ -41,6 +41,8 @@ After confirming that the input has a non-perfectly purchasable number, we need 
 * Compute the upper bound limit of possible values by max(self.input) * max(self.input).
 *  Create a boolean array possible_order of size max_order_volume + 1, initialized to False except for possible_order[0] since an order of 0 is always possible.
 
+2. Update the Possible Order Array:
+* Iterate over each packaging size and update the possible_order array.
 * If an order volume i can be expressed as a linear combination of the inputs, set possible_order[i] to True. For example if i = 5, i-5 = 0 possible_order[0] is True therefore possible_order[5] = True.
 However i= 11, i-5 = 6 but possible_order[6] is False, therefore 11 = False.
 
