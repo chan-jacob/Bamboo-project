@@ -53,11 +53,9 @@ However i= 11, i-5 = 6 but possible_order[6] is False, therefore 11 = False.
 This project includes unit test written in pytest. These test covers the following:
 1. Empty input: if input is empty it will raise an error
 2. Coprime numbers: Testing number that are coprime, it does have Non pursable amount
-3. Duplicate numbers: 
-4. Mixed of small and large_numbers:
-5. Non coprime numbers: 
-This solution has a time complexity of O(n * m), 
-where n is the maximum possible order volume and m is the number of packaging sizes. The space complexity is O(n).
+3. Duplicate numbers
+4. Mixed of small and large_numbers
+5. Non coprime numbers
 
 # Time and Space Complexity
 ## Time complexity
