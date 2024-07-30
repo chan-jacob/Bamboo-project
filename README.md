@@ -41,29 +41,11 @@ After confirming that the input has a non-perfectly purchasable number, we need 
 * Compute the upper bound limit of possible values by max(self.input) * max(self.input).
 *  Create a boolean array possible_order of size max_order_volume + 1, initialized to False except for possible_order[0] since an order of 0 is always possible.
 
-2. Update the Possible Order Array:
-* Iterate over each packaging size and update the possible_order array.
-* If an order volume i can be expressed as a linear combination of the inputs, set possible_order[i] to True.
+* If an order volume i can be expressed as a linear combination of the inputs, set possible_order[i] to True. For example if i = 5, i-5 = 0 possible_order[0] is True therefore possible_order[5] = True.
+However i= 11, i-5 = 6 but possible_order[6] is False, therefore 11 = False.
 
 3. Find the Largest Non-Purchasable Order Volume:
 * Iterate over each possible order volume from max_order_volume to 0 in reverse to find the largest integer that is False in the possible_order array.
-
-# Dynamic Programming Approach
-Dynamic programming is used to determine which order volumes can be expressed as linear combinations of the given packaging sizes:
-
-* Problem Definition: Determine the largest number that cannot be expressed as a sum of the given packaging sizes.
-* Table Initialization: Create an array possible_order where each index represents an order volume. The value at each index indicates whether that order volume can be expressed using the given packaging sizes.
-* Filling the Table: Iterate over each packaging size and update the possible_order array to mark the order volumes that can be achieved by adding the current packaging size to previously achievable volumes.
-* Finding the Largest Non-Expressible Number: Iterate from the smallest to the largest value to find the largest non-reachable sum.
-
-1. Initialization:
-* The possible_order array is initialized with False values, except for the base case possible_order[0] = True, indicating that an order volume of 0 is always achievable.
-
-2. Table Filling:
-* For each packaging size, update the possible_order array by iterating from the packaging size to max_order_volume, marking achievable order volumes as True.
-
-3. Finding the Result:
-Finally, iterate through the possible_order array to find the largest index (order volume) that is still False, indicating that it cannot be expressed using the given packaging sizes.
 
 # Testing
 This project includes unit test written in pytest. These test covers the following:
